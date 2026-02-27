@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Smart Electric Shutters Website (תריסים חשמליים חכמים)
+
+SEO-optimized, RTL Hebrew lead-generation website for smart electric shutter services.
+
+## Tech Stack
+
+- **Next.js 16** (App Router) with TypeScript
+- **Tailwind CSS 4** with full RTL support
+- **Heebo** Hebrew web font via `next/font/google`
+- Static site generation for maximum performance
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/                    # Next.js App Router pages
+│   ├── page.tsx            # Homepage
+│   ├── about/              # About page
+│   ├── blog/               # Blog listing + [slug] articles
+│   ├── services/           # 5 service pages
+│   ├── sitemap.ts          # Auto-generated sitemap.xml
+│   └── robots.ts           # Auto-generated robots.txt
+├── components/
+│   ├── layout/             # Header, Footer
+│   ├── sections/           # Hero, FAQ, Reviews, CTA, ContactForm, etc.
+│   ├── ui/                 # WhatsAppButton, PhoneButton, ServiceCard
+│   └── seo/                # JSON-LD schema markup components
+└── lib/
+    ├── content/            # Hebrew content for services and blog
+    ├── site-config.ts      # Business info placeholders
+    └── utils.ts            # WhatsApp URL builder, helpers
+```
 
-## Learn More
+## Pages
 
-To learn more about Next.js, take a look at the following resources:
+| Page | URL | Purpose |
+|------|-----|---------|
+| Homepage | `/` | Main landing, converts + ranks for primary keywords |
+| Installation | `/services/installation` | התקנת תריסים חשמליים |
+| Repair | `/services/repair` | תיקון תריס חשמלי |
+| Motors | `/services/motors` | מנועים לתריסים חשמליים |
+| Smart Shutter | `/services/smart-shutter` | תריס חכם לבית חכם |
+| Emergency | `/services/emergency` | שירות חירום 24/7 |
+| About | `/about` | Company background |
+| Blog | `/blog` | 10 SEO articles |
+| Sitemap | `/sitemap.xml` | Auto-generated |
+| Robots | `/robots.txt` | Auto-generated |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Customization
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Business Details
 
-## Deploy on Vercel
+Edit `src/lib/site-config.ts` to update:
+- Business name
+- Phone number
+- WhatsApp number
+- Email
+- Address
+- Service areas
+- Social media links
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Content
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Service page content: `src/lib/content/services.ts`
+- Blog articles: `src/lib/content/blog-posts.ts`
+
+### Domain
+
+Update `metadataBase` in `src/app/layout.tsx` and the `BASE_URL` in `src/app/sitemap.ts` with your actual domain.
+
+## SEO Features
+
+- Full Hebrew RTL support
+- Optimized H1-H3 heading structure
+- JSON-LD schema markup (LocalBusiness, Service, FAQPage, BlogPosting)
+- Unique meta titles and descriptions per page
+- Open Graph tags
+- Auto-generated sitemap.xml and robots.txt
+- Canonical URLs via Next.js metadata API
+- Internal linking between services and blog posts
+- Static generation for fast load times
+
+## Lead Generation
+
+- Sticky header with click-to-call phone button
+- Floating WhatsApp button
+- Contact form that redirects to WhatsApp
+- CTA sections placed every 2 sections
+- Scarcity elements ("זמינות מוגבלת היום")
+- Trust badges and social proof
+
+## Build
+
+```bash
+npm run build
+```
+
+## Deploy
+
+Deploy to Vercel, Netlify, or any Node.js hosting. The site is statically generated for optimal performance.
