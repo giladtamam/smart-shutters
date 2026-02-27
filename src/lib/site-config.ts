@@ -1,8 +1,8 @@
 export const siteConfig = {
   name: 'תריסים חשמליים חכמים',
   businessName: 'תריסים חשמליים חכמים',
-  phone: '050-0000000',
-  whatsapp: '9720500000000',
+  phone: '050-8463015',
+  whatsapp: '972508463015',
   email: 'info@smart-shutters.co.il',
   address: 'אזור המרכז, ישראל',
   url: 'https://www.smart-shutters.co.il',
